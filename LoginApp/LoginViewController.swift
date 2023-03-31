@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController, UITextFieldDelegate {
+final class LoginViewController: UIViewController {
     
 // MARK: Outlets
     @IBOutlet weak var usernameTF: UITextField!
@@ -73,7 +73,7 @@ extension LoginViewController {
 }
 
 //MARK: Keyboard setup
-extension LoginViewController {
+extension LoginViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)

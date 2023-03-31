@@ -108,8 +108,8 @@
                                     <segue destination="u1L-1t-ZpI" kind="unwind" unwindAction="unwindFor:" id="GBl-ks-IvW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0gM-9u-Nyi">
-                                <rect key="frame" x="116" y="120" width="88" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0gM-9u-Nyi">
+                                <rect key="frame" x="122.5" y="120" width="75.5" height="40"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="33"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

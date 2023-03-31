@@ -45,14 +45,13 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func forgotNameButtonTapped() {
-        alert(title: "Hint💡", message: "Your username is login ")
+    @IBAction func hintButtonsTapped(_ sender: UIButton) {
+        if sender.tag == 0 {
+            alert(title: "Hint💡", message: "Your username is login ")
+        } else if sender.tag == 1 {
+            alert(title: "Hint💡", message: "Your password is password")
+        }
     }
-    
-    @IBAction func forgotPasswordButtonTapped() {
-        alert(title: "Hint💡", message: "Your password is password")
-    }
-    
 }
 
 //MARK: Alert setup

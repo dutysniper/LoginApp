@@ -59,9 +59,12 @@ extension LoginViewController {
             message: message,
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.passwordTF.text = ""
-        }))
+        alert.addAction(UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: { _ in
+                self.passwordTF.text = ""
+            }))
         present(alert, animated: true)
     }
 }

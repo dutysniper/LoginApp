@@ -10,9 +10,9 @@ import UIKit
 final class LoginViewController: UIViewController {
     
 // MARK: Outlets
-    @IBOutlet weak var usernameTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet private weak var usernameTF: UITextField!
+    @IBOutlet private weak var passwordTF: UITextField!
+    @IBOutlet private weak var loginButton: UIButton!
     
     private let testLogin = "login"
     private let testPassword = "password"
@@ -31,13 +31,13 @@ final class LoginViewController: UIViewController {
         greetingVC.userName = usernameTF.text ?? ""
     }
     
-    @IBAction func unwind(for segue: UIStoryboardSegue) {
+    @IBAction private func unwind(for segue: UIStoryboardSegue) {
         usernameTF.text = ""
         passwordTF.text = ""
     }
     
 //MARK: Actions
-    @IBAction func loginButtonPressed () {
+    @IBAction private func loginButtonPressed () {
         if usernameTF.text != testLogin || passwordTF.text != testPassword {
             alert(title: "Oops!", message: "Incorrect login/password")
         } else {
@@ -45,11 +45,11 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func hintButtonsTapped(_ sender: UIButton) {
+    @IBAction private func hintButtonsTapped(_ sender: UIButton) {
         if sender.tag == 0 {
-            alert(title: "Hint💡", message: "Your username is login ")
+            alert(title: "Hint💡", message: "Your username is \(testLogin) ")
         } else if sender.tag == 1 {
-            alert(title: "Hint💡", message: "Your password is password")
+            alert(title: "Hint💡", message: "Your password is \(testPassword)")
         }
     }
 }

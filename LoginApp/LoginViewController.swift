@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController, UITextFieldDelegate {
     
 // MARK: Outlets
     @IBOutlet weak var usernameTF: UITextField!
@@ -19,6 +19,8 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.usernameTF.delegate = self
+        self.passwordTF.delegate = self
         loginButton.layer.cornerRadius = 7
     }
     
@@ -38,6 +40,8 @@ final class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed () {
         if usernameTF.text != testLogin || passwordTF.text != testPassword {
             alert(title: "Oops!", message: "Incorrect login/password")
+        } else {
+            performSegue(withIdentifier: "goToGreetingVC", sender: nil)
         }
     }
     
@@ -74,6 +78,16 @@ extension LoginViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameTF {
+            passwordTF.becomeFirstResponder()
+        }
+        if textField == passwordTF {
+            loginButtonPressed()
+        }
+        return true
     }
 }
 

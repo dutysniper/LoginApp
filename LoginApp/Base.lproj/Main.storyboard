@@ -23,7 +23,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UiY-lf-5oE">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="nickname"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="no" textContentType="nickname"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YXw-QG-Soj">
                                         <rect key="frame" x="0.0" y="45" width="288" height="34"/>
@@ -39,7 +39,7 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="AZD-6H-0YK"/>
-                                            <segue destination="cb1-EJ-ks6" kind="presentation" modalPresentationStyle="fullScreen" id="qZy-NM-eye"/>
+                                            <segue destination="cb1-EJ-ks6" kind="presentation" identifier="goToGreetingVC" modalPresentationStyle="fullScreen" id="qZy-NM-eye"/>
                                         </connections>
                                     </button>
                                 </subviews>

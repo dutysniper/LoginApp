@@ -19,8 +19,8 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.usernameTF.delegate = self
-        self.passwordTF.delegate = self
+        usernameTF.delegate = self
+        passwordTF.delegate = self
         loginButton.layer.cornerRadius = 7
     }
     
@@ -39,7 +39,7 @@ final class LoginViewController: UIViewController {
 //MARK: Actions
     @IBAction private func loginButtonPressed () {
         if usernameTF.text != testLogin || passwordTF.text != testPassword {
-            alert(title: "Oops!", message: "Incorrect login/password")
+            alertWithAction(title: "Oops!", message: "Incorrect login/password")
         } else {
             performSegue(withIdentifier: "goToGreetingVC", sender: nil)
         }
@@ -56,19 +56,25 @@ final class LoginViewController: UIViewController {
 
 //MARK: Alert setup
 extension LoginViewController {
+    private func alertWithAction(title: String, message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default) {_ in self.passwordTF.text = ""
+        })
+present(alert, animated: true)
+    }
+    
     private func alert(title: String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(
-            title: "OK",
-            style: .default,
-            handler: { _ in
-                self.passwordTF.text = ""
-            }))
-        present(alert, animated: true)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+present(alert, animated: true)
     }
 }
 

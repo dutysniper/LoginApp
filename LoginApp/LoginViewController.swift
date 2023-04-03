@@ -39,7 +39,7 @@ final class LoginViewController: UIViewController {
 //MARK: Actions
     @IBAction private func loginButtonPressed () {
         if usernameTF.text != testLogin || passwordTF.text != testPassword {
-            alertWithAction(title: "Oops!", message: "Incorrect login/password")
+            alert(title: "Oops!", message: "Incorrect login/password", action: true)
         } else {
             performSegue(withIdentifier: "goToGreetingVC", sender: nil)
         }
@@ -47,33 +47,25 @@ final class LoginViewController: UIViewController {
     
     @IBAction private func hintButtonsTapped(_ sender: UIButton) {
         if sender.tag == 0 {
-            alert(title: "Hint💡", message: "Your username is \(testLogin) ")
+            alert(title: "Hint💡", message: "Your username is \(testLogin) ", action: false)
         } else if sender.tag == 1 {
-            alert(title: "Hint💡", message: "Your password is \(testPassword)")
+            alert(title: "Hint💡", message: "Your password is \(testPassword)", action: false)
         }
     }
 }
 
 //MARK: Alert setup
 extension LoginViewController {
-    private func alertWithAction(title: String, message: String) {
+    private func alert(title: String, message: String, action: Bool) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default) {_ in self.passwordTF.text = ""
+        alert.addAction(UIAlertAction(title: "OK", style: .default) {_ in if action {
+            self.passwordTF.text = ""
+        }
         })
-present(alert, animated: true)
-    }
-    
-    private func alert(title: String, message: String) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
 present(alert, animated: true)
     }
 }

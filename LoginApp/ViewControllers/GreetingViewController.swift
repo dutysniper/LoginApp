@@ -10,11 +10,14 @@ import UIKit
 final class GreetingViewController: UIViewController {
 
     @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var represent: UILabel!
     
     var userName = ""
+    var developerName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        greetingLabel.text = "Hello, \(userName)"
+        greetingLabel.text = "Hello, \(userName)!"
+        represent.text = "My name is \(developerName)"
     }
 }

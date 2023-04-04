@@ -14,23 +14,31 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordTF: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
     
-    private let testLogin = "login"
-    private let testPassword = "password"
+    let developerInfo = User.getDeveloperInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameTF.delegate = self
         passwordTF.delegate = self
+        usernameTF.text = "User"
+        passwordTF.text = "password"
         loginButton.layer.cornerRadius = 7
     }
     
 //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let greetingVC = segue.destination as? GreetingViewController else
-        { return }
-        greetingVC.userName = usernameTF.text ?? ""
+        guard let tabBarController = segue.destination as? UITabBarController else { return }
+        guard let viewContollers = tabBarController.viewControllers else { return }
+        
+        viewContollers.forEach { viewController in
+            if let greetingVC = viewController as? GreetingViewController {
+                greetingVC.userName = User.login
+                greetingVC.developerName = developerInfo.developer.name
+            } else if let navigationVC = viewController as? UINavigationController {
+                let developerInfoVC = navigationVC.topViewController as? DeveloperInfoViewController
+            }
+        }
     }
-    
     @IBAction private func unwind(for segue: UIStoryboardSegue) {
         usernameTF.text = ""
         passwordTF.text = ""
@@ -38,8 +46,12 @@ final class LoginViewController: UIViewController {
     
 //MARK: Actions
     @IBAction private func loginButtonPressed () {
-        if usernameTF.text != testLogin || passwordTF.text != testPassword {
-            alert(title: "Oops!", message: "Incorrect login/password", action: true)
+        if usernameTF.text != User.login || passwordTF.text != User.password {
+            alert(
+                title: "Oops!",
+                message: "Incorrect login/password",
+                action: true
+            )
         } else {
             performSegue(withIdentifier: "goToGreetingVC", sender: nil)
         }
@@ -47,9 +59,16 @@ final class LoginViewController: UIViewController {
     
     @IBAction private func hintButtonsTapped(_ sender: UIButton) {
         if sender.tag == 0 {
-            alert(title: "Hint💡", message: "Your username is \(testLogin) ", action: false)
+            alert(
+                title: "Hint💡",
+                message: "Your username is \(User.login) ",
+                action: false)
         } else if sender.tag == 1 {
-            alert(title: "Hint💡", message: "Your password is \(testPassword)", action: false)
+            alert(
+                title: "Hint💡",
+                message: "Your password is \(User.password)",
+                action: false
+            )
         }
     }
 }

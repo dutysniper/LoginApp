@@ -16,6 +16,7 @@
 		9126053D29D6CEE900D4884B /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9126053C29D6CEE900D4884B /* GreetingViewController.swift */; };
 		914966F329DC46AD000CF110 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914966F229DC46AD000CF110 /* User.swift */; };
 		914966F529DC615B000CF110 /* DeveloperInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914966F429DC615B000CF110 /* DeveloperInfoViewController.swift */; };
+		91E4511E29DC82B40063B412 /* BiographyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4511D29DC82B40063B412 /* BiographyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9126053C29D6CEE900D4884B /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		914966F229DC46AD000CF110 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		914966F429DC615B000CF110 /* DeveloperInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoViewController.swift; sourceTree = "<group>"; };
+		91E4511D29DC82B40063B412 /* BiographyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiographyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				9126052C29D6CDEA00D4884B /* LoginViewController.swift */,
 				9126053C29D6CEE900D4884B /* GreetingViewController.swift */,
 				914966F429DC615B000CF110 /* DeveloperInfoViewController.swift */,
+				91E4511D29DC82B40063B412 /* BiographyViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E4511E29DC82B40063B412 /* BiographyViewController.swift in Sources */,
 				914966F329DC46AD000CF110 /* User.swift in Sources */,
 				9126052D29D6CDEA00D4884B /* LoginViewController.swift in Sources */,
 				9126052929D6CDEA00D4884B /* AppDelegate.swift in Sources */,

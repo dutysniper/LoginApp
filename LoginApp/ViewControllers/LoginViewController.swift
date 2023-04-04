@@ -14,7 +14,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordTF: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
     
-    let developerInfo = User.getDeveloperInfo()
+    let userInfo = User.getUserInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +32,10 @@ final class LoginViewController: UIViewController {
         
         viewContollers.forEach { viewController in
             if let greetingVC = viewController as? GreetingViewController {
-                greetingVC.userName = User.login
-                greetingVC.developerName = developerInfo.developer.name
+                greetingVC.user = userInfo
             } else if let navigationVC = viewController as? UINavigationController {
                 let developerInfoVC = navigationVC.topViewController as? DeveloperInfoViewController
+                developerInfoVC?.userInfo = userInfo
             }
         }
     }
@@ -46,7 +46,7 @@ final class LoginViewController: UIViewController {
     
 //MARK: Actions
     @IBAction private func loginButtonPressed () {
-        if usernameTF.text != User.login || passwordTF.text != User.password {
+        if usernameTF.text != userInfo.login || passwordTF.text != userInfo.password {
             alert(
                 title: "Oops!",
                 message: "Incorrect login/password",
@@ -61,12 +61,12 @@ final class LoginViewController: UIViewController {
         if sender.tag == 0 {
             alert(
                 title: "Hint💡",
-                message: "Your username is \(User.login) ",
+                message: "Your username is \(userInfo.login) ",
                 action: false)
         } else if sender.tag == 1 {
             alert(
                 title: "Hint💡",
-                message: "Your password is \(User.password)",
+                message: "Your password is \(userInfo.password)",
                 action: false
             )
         }

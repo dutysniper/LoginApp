@@ -14,14 +14,14 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordTF: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
     
-    let userInfo = User.getUserInfo()
+   private let userInfo = User.getUserInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameTF.delegate = self
         passwordTF.delegate = self
-        usernameTF.text = "User"
-        passwordTF.text = "password"
+        usernameTF.text = userInfo.login
+        passwordTF.text = userInfo.password
         loginButton.layer.cornerRadius = 7
     }
     
@@ -32,7 +32,7 @@ final class LoginViewController: UIViewController {
         
         viewContollers.forEach { viewController in
             if let greetingVC = viewController as? GreetingViewController {
-                greetingVC.user = userInfo
+                greetingVC.userInfo = userInfo
             } else if let navigationVC = viewController as? UINavigationController {
                 let developerInfoVC = navigationVC.topViewController as? DeveloperInfoViewController
                 developerInfoVC?.userInfo = userInfo

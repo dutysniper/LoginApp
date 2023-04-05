@@ -8,8 +8,8 @@
 import UIKit
 
 final class DeveloperInfoViewController: UIViewController {
-    @IBOutlet private weak var photo: UIImageView!
     
+    @IBOutlet private weak var photo: UIImageView!
     @IBOutlet private var developerFacts: [UILabel]!
     
     var userInfo: User!
@@ -28,6 +28,7 @@ final class DeveloperInfoViewController: UIViewController {
         }
     
     override func viewDidLayoutSubviews() {
+        photo.image = UIImage(named: userInfo.developer.mainPhoto)
         photo.layer.cornerRadius = photo.layer.frame.width / 2
         photo.clipsToBounds = true
     }

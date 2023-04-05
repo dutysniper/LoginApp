@@ -11,16 +11,16 @@ final class BiographyViewController: UIViewController {
     
     @IBOutlet private var photo: UIImageView!
   
-    @IBOutlet weak var biographyText: UITextView!
+    @IBOutlet private weak var biographyText: UITextView!
     
     var userInfo: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         biographyText.text = userInfo.developer.biography
-        photo.image = UIImage(named: userInfo.developer.secondaryPhoto)
     }
     override func viewDidLayoutSubviews() {
+        photo.image = UIImage(named: userInfo.developer.secondaryPhoto)
         photo.clipsToBounds = true
         photo.layer.cornerRadius = photo.layer.frame.width / 2
     }
